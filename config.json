@@ -1,11 +1,11 @@
 {
   "owner": "Dip To",
-  "fb_ID":"ADD_YOUR_FACEBOOK_ID",
+  "fb_ID": "ADD_YOUR_FACEBOOK_ID",
   "adminName": "Lorex",
   "botName": "Lorex AI",
   "token": "7801002281:AAGUS_gSipt8ZB7R2SUhKpuBXvIOAB-sbs0",
-"mongodbURI":"mongodb+srv://userg4185:zWfR3c1ez5zpAUj0@cluster0.mfbe2.mongodb.net/botbee?retryWrites=true&w=majority&appName=Cluster0",
-  "notes":"ADD_YOUR_MONGO_DB_URI for fast response. and if you don't know how to collect mongo uri then see this For database. MongooDB uri => https://drive.google.com/file/d/10AxcIiFQuI9S2gMBwV_i4U8UogMJX8pD/view?usp=drivesdk",
+  "mongodbURI": "mongodb+srv://userg4185:zWfR3c1ez5zpAUj0@cluster0.mfbe2.mongodb.net/botbee?retryWrites=true&w=majority&appName=Cluster0",
+  "notes": "ADD_YOUR_MONGO_DB_URI for fast response. and if you don't know how to collect mongo uri then see this For database. MongooDB uri => https://drive.google.com/file/d/10AxcIiFQuI9S2gMBwV_i4U8UogMJX8pD/view?usp=drivesdk",
   "prefix": "/",
   "api": "https://www.noobs-api.000.pe/dipto",
   "database": {
