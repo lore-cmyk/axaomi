@@ -13,15 +13,15 @@ module.exports = {
     },
   onStart: async ({ api, message ,event }) => {
         try {
-            const botName = "Your Baby";
-            const botPrefix = "!";
-            const authorName = "亗ㅤƊᎥᎮㅤƬᴏㅤ亗";
-            const ownAge = "18";
-            const teamName = "Noobs team";
-      const authorFB = "https://m.me/dipto008";
+            const botName = "Lorex Ai";
+            const botPrefix = "/";
+            const authorName = "Lore Dave";
+            const ownAge = "25";
+            const teamName = "Mediatek Mix Club Dj's";
+      const authorFB = "https://www.facebook.com/djlorexofficialfb";
           const authorInsta = "@fariasdipto";
-  const link = "https://i.imgur.com/Faxo9ce.jpeg";
-        const now = moment().tz('Asia/Dhaka');
+  const link = "https://i.imgur.com/PHEX2RY.jpg";
+        const now = moment().tz('Asia/Manila');
       const date = now.format('MMMM Do YYYY');
           const time = now.format('h:mm:ss A');
             const uptime = process.uptime();
