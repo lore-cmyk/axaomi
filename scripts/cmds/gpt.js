@@ -50,7 +50,7 @@ module.exports.onStart = async ({ message, args, event }) => {
 
     if (!args[0]) {
       return message.reply(
-        "Please provide a message to send to GPT-4 AI.\n\nExample:\n!gpt4 hi"
+        "Please provide a prompt to interact with Ai GPT-4"
       );
     }
 
