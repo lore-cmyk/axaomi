@@ -1,6 +1,6 @@
 const axios = require("axios");
+
 const baseUrl = async () => {
-  // Replace with your static API endpoint
   return 'https://gpt4-api-zl5u.onrender.com/api';
 };
 
@@ -24,6 +24,7 @@ module.exports.onReply = async function ({ message, event, Reply }) {
     const reply = event.text?.toLowerCase();
     if (isNaN(reply)) {
       try {
+        await message.reply("Generating...");
         const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(reply)}&uid=${author}`);
         const ok = response.data.response;
         const info = await message.reply(ok);
@@ -49,14 +50,15 @@ module.exports.onStart = async ({ message, args, event }) => {
     const userMessage = args.join(" ").toLowerCase();
 
     if (!args[0]) {
-      return message.reply(
-        "Please provide a prompt to interact with Ai GPT-4"
-      );
+      return message.reply("Please provide a prompt to interact with Ai GPT-4");
     }
 
+    const generatingMessage = await message.reply("Generating...");
+    
     const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(userMessage)}&uid=${author}`);
     const aiResponse = response.data.response;
     
+    await generatingMessage.unsend(); // Unsending the "Generating..." message
     const info = await message.reply(aiResponse);
     
     global.functions.onReply.set(info.message_id, {
