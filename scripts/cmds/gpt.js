@@ -24,9 +24,10 @@ module.exports.onReply = async function ({ message, event, Reply }) {
     const reply = event.text?.toLowerCase();
     if (isNaN(reply)) {
       try {
-        await message.reply("Generating...");
+        const generatingMessage = await message.reply("Generating...");
         const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(reply)}&uid=${author}`);
         const ok = response.data.response;
+        await generatingMessage.unsend(); // Unsending the "Generating..." message
         const info = await message.reply(ok);
 
         global.functions.onReply.set(info.message_id, {
@@ -58,7 +59,7 @@ module.exports.onStart = async ({ message, args, event }) => {
     const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(userMessage)}&uid=${author}`);
     const aiResponse = response.data.response;
     
-    await generatingMessage.unsend(); // Unsending the "Generating..." message
+    await message.unsend(generatingMessage.message_id); // Unsending the "Generating..." message
     const info = await message.reply(aiResponse);
     
     global.functions.onReply.set(info.message_id, {
