@@ -25,7 +25,7 @@ module.exports.onReply = async function ({ message, event, Reply }) {
     if (isNaN(reply)) {
       try {
         const generatingMessage = await message.reply("Generating...");
-        const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(reply)}&uid=${author}`);
+        const response = await axios.get(`${await baseUrl()}/gpt4?prompt=${encodeURIComponent(reply)}&uid=${author}`);
         const ok = response.data.response;
         await generatingMessage.unsend(); // Unsending the "Generating..." message
         const info = await message.reply(ok);
