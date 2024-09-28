@@ -9,7 +9,7 @@ module.exports.config = {
   aliases: ["ai", "chatgpt"],
   version: "1.0.0",
   role: 0, 
-  author: "dipto", 
+  author: "lorexai", 
   description: "GPT-4 AI with multiple conversations",
   usePrefix: true,
   guide: "[message]",
@@ -27,7 +27,7 @@ module.exports.onReply = async function ({ message, event, Reply }) {
         const generatingMessage = await message.reply("Generating...");
         const response = await axios.get(`${await baseUrl()}/gpt4?prompt=${encodeURIComponent(reply)}&uid=${author}`);
         const ok = response.data.response;
-        await generatingMessage.unsend(); // Unsending the "Generating..." message
+        await generatingMessage.unsend();
         const info = await message.reply(ok);
 
         global.functions.onReply.set(info.message_id, {
@@ -56,10 +56,10 @@ module.exports.onStart = async ({ message, args, event }) => {
 
     const generatingMessage = await message.reply("Generating...");
     
-    const response = await axios.get(`${await baseUrl()}/gpt4o?prompt=${encodeURIComponent(userMessage)}&uid=${author}`);
+    const response = await axios.get(`${await baseUrl()}/gpt4?prompt=${encodeURIComponent(userMessage)}&uid=${author}`);
     const aiResponse = response.data.response;
     
-    await message.unsend(generatingMessage.message_id); // Unsending the "Generating..." message
+    await message.unsend(generatingMessage.message_id); 
     const info = await message.reply(aiResponse);
     
     global.functions.onReply.set(info.message_id, {
