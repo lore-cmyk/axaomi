@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const baseUrl = async () => {
-  return 'https://gpt4-api-zl5u.onrender.com/api';
+  return 'https://lorex-gpt4.onrender.com/api';
 };
 
 module.exports.config = {
